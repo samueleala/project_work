@@ -1,0 +1,273 @@
+/* 
+File di stile in linguaggio "css" che ci permette di andare a personalizzare la nostra pagina web html 
+infatti all'interno del nostro codice html troviamo la seguente riga
+        <link rel="stylesheet" href="style.css">
+con il riferimento al file style.css, possiamo personalizzare tutto quello che è presente sul foglio html
+qui di seguito quindi è presente codice che serve per rendere la mia pagina web unica
+attraverso i vari comandi scritti, commentati per spiegare la loro funzione, oltre per best practice
+*/
+
+ /* tramite questo "root" do lo stile a tutta la pagina tramite i vari tag presenti di seguito */
+:root {
+    /* Colori principali definiti per tutto il documento*/
+    --bg: #00843d;       /* Colore di sfondo principale – bianco */
+    --fg: #121614;       /* Colore del testo principale  */
+    --muted: #ffb434;    /* Colore per testi secondari */
+    --brand: #00843d;    /* Colore d'accento principale */
+    --accent: #000000;   /* Colore per link */
+}
+
+/* 
+====================================================
+    STILI
+====================================================
+*/
+
+/* con il tag box-sizing globale riesco a fare una gestione coerente dei padding e border */
+* { 
+    box-sizing: border-box; 
+}
+
+/* Impostazioni generali del documento */
+html, body { 
+    margin:0; 
+    padding:0; 
+    background:var(--bg);   /* Sfondo uniforme */
+    color:var(--fg);        /* Testo principale */
+    font-family: Manrope;
+    font-size: 20px;   
+    scroll-behavior: smooth; /* Abilita lo scorrimento fluido */
+    min-width: fit-content;  /* Evita overflow orizzontale indesiderato */
+}
+
+/* Stile per i soli link */
+a { 
+    color: var(--accent); 
+    text-decoration:none; 
+}
+
+ /* font diverso per i soli titoli con tag h2 */
+h2{
+    font-family: Inter;
+}
+
+/* 
+====================================================
+    BARRA NAV
+====================================================
+*/
+
+nav {
+    background-color: #ffffff;    
+    padding: 20px 40px;
+    position: sticky;                /* resta visibile durante lo scroll */
+    top: 0;
+    font-size: 0.8rem;               /* grandezza font modificata rispetto a tutta la pagina ed utilizzato rem per rendere la barra responsive */
+    z-index: 1000;                   /* Assicura che resti sopra tutti gli elementi */
+    display: flex;
+    justify-content: space-evenly;
+}
+
+ /* impostazioni per il logo dell'azienda messa nella navbar */
+nav img {
+    height: 30px;           
+    position: relative;
+}
+
+/* Lista orizzontale delle voci di menu */
+nav ul {
+    display:flex; 
+    gap:24px;                        /* Spazio uniforme tra le voci */
+    list-style:none; 
+    margin:0; 
+    padding:0; 
+    align-items:center; 
+    justify-content:center;
+}
+
+
+/* Link del menu */
+nav a { 
+    color:var(--fg); 
+    font-weight:600; 
+}
+
+/* 
+====================================================
+    HERO SECTION
+====================================================
+*/
+
+header.hero {
+    position: relative; 
+    overflow:hidden; 
+    background: url('img/bil_sost.png') center/cover no-repeat; /* Immagine di sfondo nella pagina */
+    padding: 100px 20px;
+    height: 60vh;                    /* Occupazione verticale completa */
+}
+
+/* Contenitore centrale per limitare la larghezza */
+.container { 
+    width: min(1000px,110%); 
+    margin: 0 auto; 
+}
+
+/* Titolo principale della hero */
+.hero h1 { 
+    margin:14px 0 10px; 
+    font-size: clamp(28px, 6vw, 44px); /* Adattivo a seconda dello schermo */
+    line-height:1.1; 
+    letter-spacing:.2px; 
+    font-family: Inter;
+}
+
+/* Paragrafo introduttivo */
+.hero p.lead { 
+    color:var(--muted); 
+    max-width: 70ch;                  /* Limita la lunghezza per leggibilità */
+    font-size: clamp(20px, 2.5vw, 18px); 
+}
+
+/* Pulsante principale call to action*/
+.cta { 
+    display:flex; 
+    margin-top:300px; 
+    flex-wrap:wrap; 
+}
+
+/* Pulsante secondario con style 2 */
+.cta2 { 
+    display:flex; 
+    margin-top:30px; 
+    flex-wrap:wrap; 
+}
+
+/* 
+====================================================
+    BUTTONS
+====================================================
+*/
+
+/* bottone principale */
+.btn { 
+    appearance:none; 
+    background:#00843d; 
+    padding:16px 20px; 
+    border-radius:14px; 
+    font-weight:200; 
+    text-decoration:none; 
+    font-family: Inter;
+    color: #000000;
+    font-weight:300;
+}
+
+/* bottone presente infondo alla pagina */
+.btn2 { 
+    appearance:none; 
+    background:#ffb434; 
+    padding:16px 20px; 
+    border-radius:14px; 
+    font-weight:200; 
+    text-decoration:none; 
+    font-family: Inter;
+}
+
+/* effetto per cambio colore quando si passa sopra */
+.btn:hover { 
+    transform: translateY(-2px); 
+    background: linear-gradient(180deg, #ffb434, #ffb434); 
+}
+
+
+/* 
+====================================================
+    STRUTTURA HERO INTERNA
+====================================================
+*/
+
+.hero-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-bottom: 24px;
+}
+
+.hero-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-bottom: 24px;
+}
+
+/* 
+====================================================
+    TESTI E SEZIONI
+====================================================
+*/
+
+/* Ogni sezione separata */
+.section { 
+    padding: 40px 40px;
+}
+
+/* Paragrafi con colore più chiaro e maggiore leggibilità */
+.section p {
+  color: #ffffff;
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+
+/* Titoli di sezione */
+.section h2 { 
+    font-size: clamp(24px, 5vw, 32px);
+    color: #ffb434;
+    margin-bottom: 20px;
+}
+
+ /* ho voluto creare una card per la sezione obiettivi per differenziarla dalla monotonia del resto del body, in modo da rendere anche più di design la pagina */
+.card {
+    background-color: #ffb434;   /* sfondo diverso dal body */
+    border-radius: 100px;          /* angoli smussati */
+    padding: 2rem;                
+    margin: 2rem auto;            /* separazione dal resto */
+    max-width: 1100px;             /* larghezza leggibile */
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08); /* effetto elevazione */
+    font-family: 'Noto Sans', sans-serif;  /* voglio un font diverso dal resto del body */
+    color: #0a5a37;     /* colore del testo */
+    line-height: 1.6; /* aumenta la spaziatura tra le righe */
+
+}
+
+
+/* 
+====================================================
+    FOOTER
+====================================================
+*/
+
+/* creazione del footer presente infondo alla pagina */
+footer { 
+    padding: 40px 20px; 
+    color: var(--muted); 
+    border-top:1px solid #15392f; 
+    background-color: #171715;
+}
+
+footer > div.container { 
+    text-align: center;
+}
+
+/* Logo nel footer */
+footer > div > img { 
+    width:120px; 
+    opacity:0.8; 
+    margin-bottom:10px; 
+    filter: drop-shadow(0 0 6px rgba(255,255,255,0.15)); 
+}
+
+
+/* FINE DOCUMENTO */
